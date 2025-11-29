@@ -1,4 +1,5 @@
 # Используем официальный образ nginx для production
+# Используем официальный образ nginx для production
 FROM nginx:alpine
 
 # Удаляем стандартную конфигурацию nginx
