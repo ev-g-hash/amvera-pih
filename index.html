@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Презентация проекта - Подарок в большом городе</title>    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="static/css/presentation.css" rel="stylesheet">
 </head>
 <body>
     <!-- Слайды -->
@@ -21,13 +25,13 @@
                     <h2 class="h2 mb-4">Django Framework</h2>
                     <p class="lead mb-5">Современное веб-приложение с каталогом товаров и интеграцией Telegram</p>
                     <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="tech-stack">
-                                <span class="badge bg-primary fs-6 me-2 mb-2">Django</span>
-                                <span class="badge bg-success fs-6 me-2 mb-2">Python</span>
-                                <span class="badge bg-info fs-6 me-2 mb-2">Bootstrap</span>
-                                <span class="badge bg-warning fs-6 me-2 mb-2">SQLite</span>
-                                <span class="badge bg-danger fs-6 me-2 mb-2">Telegram Bot</span>
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <div class="tech-stack d-flex flex-wrap justify-content-center gap-2">
+                                <span class="badge bg-primary fs-6">Django</span>
+                                <span class="badge bg-success fs-6">Python</span>
+                                <span class="badge bg-info fs-6">Bootstrap</span>
+                                <span class="badge bg-warning fs-6">SQLite</span>
+                                <span class="badge bg-danger fs-6">Telegram Bot</span>
                             </div>
                         </div>
                     </div>
@@ -39,23 +43,23 @@
         <div class="slide" id="slide2">
             <div class="slide-content">
                 <h2 class="slide-title">📋 Обзор проекта</h2>
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row g-4">
+                    <div class="col-12 col-lg-6">
                         <h4>🎯 Основные цели:</h4>
-                        <ul class="feature-list">
-                            <li><i class="bi bi-check-circle-fill text-success"></i> Создание современного интернет-магазина</li>
-                            <li><i class="bi bi-check-circle-fill text-success"></i> Удобный каталог товаров</li>
-                            <li><i class="bi bi-check-circle-fill text-success"></i> Интеграция с Telegram для заказов</li>
-                            <li><i class="bi bi-check-circle-fill text-success"></i> Админ-панель для управления</li>
+                        <ul class="feature-list list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Создание современного интернет-магазина</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Удобный каталог товаров</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Интеграция с Telegram для заказов</li>
+                            <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Админ-панель для управления</li>
                         </ul>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-12 col-lg-6">
                         <h4>⚡ Ключевые возможности:</h4>
-                        <ul class="feature-list">
-                            <li><i class="bi bi-star-fill text-warning"></i> Пагинация товаров (6 на странице)</li>
-                            <li><i class="bi bi-star-fill text-warning"></i> Поиск и фильтрация</li>
-                            <li><i class="bi bi-star-fill text-warning"></i> Загрузка изображений товаров</li>
-                            <li><i class="bi bi-star-fill text-warning"></i> Адаптивный дизайн</li>
+                        <ul class="feature-list list-unstyled">
+                            <li class="mb-2"><i class="bi bi-star-fill text-warning me-2"></i>Пагинация товаров (6 на странице)</li>
+                            <li class="mb-2"><i class="bi bi-star-fill text-warning me-2"></i>Поиск и фильтрация</li>
+                            <li class="mb-2"><i class="bi bi-star-fill text-warning me-2"></i>Загрузка изображений товаров</li>
+                            <li class="mb-2"><i class="bi bi-star-fill text-warning me-2"></i>Адаптивный дизайн</li>
                         </ul>
                     </div>
                 </div>
@@ -66,40 +70,40 @@
         <div class="slide" id="slide3">
             <div class="slide-content">
                 <h2 class="slide-title">🏗️ Архитектура проекта</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="app-card">
-                            <div class="app-icon bg-primary">📱</div>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="app-card h-100">
+                            <div class="app-icon bg-primary mx-auto mb-3">📱</div>
                             <h5>main_shop</h5>
                             <p>Основное приложение</p>
-                            <ul>
-                                <li>Главная страница</li>
-                                <li>Форма обратной связи</li>
-                                <li>Интеграция Telegram</li>
+                            <ul class="list-unstyled small">
+                                <li>• Главная страница</li>
+                                <li>• Форма обратной связи</li>
+                                <li>• Интеграция Telegram</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="app-card">
-                            <div class="app-icon bg-success">🛒</div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="app-card h-100">
+                            <div class="app-icon bg-success mx-auto mb-3">🛒</div>
                             <h5>goods</h5>
                             <p>Каталог товаров</p>
-                            <ul>
-                                <li>Категории товаров</li>
-                                <li>Каталог с пагинацией</li>
-                                <li>Детальные страницы</li>
+                            <ul class="list-unstyled small">
+                                <li>• Категории товаров</li>
+                                <li>• Каталог с пагинацией</li>
+                                <li>• Детальные страницы</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="app-card">
-                            <div class="app-icon bg-info">⚙️</div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="app-card h-100">
+                            <div class="app-icon bg-info mx-auto mb-3">⚙️</div>
                             <h5>shop</h5>
                             <p>Настройки проекта</p>
-                            <ul>
-                                <li>Маршрутизация URL</li>
-                                <li>Статические файлы</li>
-                                <li>База данных</li>
+                            <ul class="list-unstyled small">
+                                <li>• Маршрутизация URL</li>
+                                <li>• Статические файлы</li>
+                                <li>• База данных</li>
                             </ul>
                         </div>
                     </div>
@@ -111,31 +115,31 @@
         <div class="slide" id="slide4">
             <div class="slide-content">
                 <h2 class="slide-title">🗄️ Модели данных</h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="model-card">
-                            <h5><i class="bi bi-folder-fill text-primary"></i> Categories (Категории)</h5>
+                <div class="row g-4">
+                    <div class="col-12 col-lg-6">
+                        <div class="model-card h-100">
+                            <h5><i class="bi bi-folder-fill text-primary me-2"></i>Categories (Категории)</h5>
                             <div class="model-fields">
                                 <code>name (CharField, 100)</code>
                             </div>
-                            <p class="mt-2">Категории товаров для группировки</p>
+                            <p class="mt-2 small">Категории товаров для группировки</p>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="model-card">
-                            <h5><i class="bi bi-box-fill text-success"></i> Products (Товары)</h5>
+                    <div class="col-12 col-lg-6">
+                        <div class="model-card h-100">
+                            <h5><i class="bi bi-box-fill text-success me-2"></i>Products (Товары)</h5>
                             <div class="model-fields">
                                 <code>name (CharField, 200)</code><br>
                                 <code>description (TextField)</code><br>
                                 <code>image (ImageField)</code><br>
                                 <code>category (ForeignKey)</code>
                             </div>
-                            <p class="mt-2">Товары с изображениями и описанием</p>
+                            <p class="mt-2 small">Товары с изображениями и описанием</p>
                         </div>
                     </div>
                 </div>
                 <div class="row mt-4">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <div class="features-grid">
                             <div class="feature-item">
                                 <i class="bi bi-upload text-primary"></i>
@@ -163,47 +167,47 @@
         <div class="slide" id="slide5">
             <div class="slide-content">
                 <h2 class="slide-title">⚙️ Основная функциональность</h2>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="function-card">
-                            <i class="bi bi-house-fill text-primary"></i>
+                <div class="row g-4">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="function-card h-100">
+                            <i class="bi bi-house-fill text-primary fs-1 mb-3"></i>
                             <h5>Главная страница</h5>
-                            <p>Приветственная страница с описанием магазина и навигацией</p>
+                            <p class="small">Приветственная страница с описанием магазина и навигацией</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="function-card">
-                            <i class="bi bi-grid-fill text-success"></i>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="function-card h-100">
+                            <i class="bi bi-grid-fill text-success fs-1 mb-3"></i>
                             <h5>Каталог товаров</h5>
-                            <p>Сетка товаров с пагинацией, поиском и фильтрацией</p>
+                            <p class="small">Сетка товаров с пагинацией, поиском и фильтрацией</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="function-card">
-                            <i class="bi bi-eye-fill text-info"></i>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="function-card h-100">
+                            <i class="bi bi-eye-fill text-info fs-1 mb-3"></i>
                             <h5>Детальные страницы</h5>
-                            <p>Подробная информация о товаре с возможностью заказа</p>
+                            <p class="small">Подробная информация о товаре с возможностью заказа</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="function-card">
-                            <i class="bi bi-chat-fill text-warning"></i>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="function-card h-100">
+                            <i class="bi bi-chat-fill text-warning fs-1 mb-3"></i>
                             <h5>Форма обратной связи</h5>
-                            <p>Заявки с данными клиента, отправляемые в Telegram</p>
+                            <p class="small">Заявки с данными клиента, отправляемые в Telegram</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="function-card">
-                            <i class="bi bi-telegram text-primary"></i>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="function-card h-100">
+                            <i class="bi bi-telegram text-primary fs-1 mb-3"></i>
                             <h5>Telegram интеграция</h5>
-                            <p>Автоматическая отправка заявок в чат бота</p>
+                            <p class="small">Автоматическая отправка заявок в чат бота</p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="function-card">
-                            <i class="bi bi-gear-fill text-dark"></i>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="function-card h-100">
+                            <i class="bi bi-gear-fill text-dark fs-1 mb-3"></i>
                             <h5>Админ-панель</h5>
-                            <p>Управление товарами, категориями и заявками</p>
+                            <p class="small">Управление товарами, категориями и заявками</p>
                         </div>
                     </div>
                 </div>
@@ -214,62 +218,62 @@
         <div class="slide" id="slide6">
             <div class="slide-content">
                 <h2 class="slide-title">🛠️ Технологический стек</h2>
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row g-4">
+                    <div class="col-12 col-lg-6">
                         <h4>Backend:</h4>
                         <div class="tech-list">
                             <div class="tech-item">
                                 <span class="tech-icon">🐍</span>
                                 <div>
                                     <strong>Python 3.13+</strong>
-                                    <p>Основной язык программирования</p>
+                                    <p class="small mb-0">Основной язык программирования</p>
                                 </div>
                             </div>
                             <div class="tech-item">
                                 <span class="tech-icon">🌐</span>
                                 <div>
                                     <strong>Django 5.2.8</strong>
-                                    <p>Веб-фреймворк для разработки</p>
+                                    <p class="small mb-0">Веб-фреймворк для разработки</p>
                                 </div>
                             </div>
                             <div class="tech-item">
                                 <span class="tech-icon">🗄️</span>
                                 <div>
                                     <strong>SQLite</strong>
-                                    <p>База данных для хранения данных</p>
+                                    <p class="small mb-0">База данных для хранения данных</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-12 col-lg-6">
                         <h4>Frontend:</h4>
                         <div class="tech-list">
                             <div class="tech-item">
                                 <span class="tech-icon">🎨</span>
                                 <div>
                                     <strong>Bootstrap 5</strong>
-                                    <p>CSS-фреймворк для дизайна</p>
+                                    <p class="small mb-0">CSS-фреймворк для дизайна</p>
                                 </div>
                             </div>
                             <div class="tech-item">
                                 <span class="tech-icon">📱</span>
                                 <div>
                                     <strong>Responsive Design</strong>
-                                    <p>Адаптивная верстка для всех устройств</p>
+                                    <p class="small mb-0">Адаптивная верстка для всех устройств</p>
                                 </div>
                             </div>
                             <div class="tech-item">
                                 <span class="tech-icon">⚡</span>
                                 <div>
                                     <strong>JavaScript</strong>
-                                    <p>Интерактивность и AJAX</p>
+                                    <p class="small mb-0">Интерактивность и AJAX</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row mt-4">
-                    <div class="col-md-12">
+                    <div class="col-12">
                         <h4>Дополнительно:</h4>
                         <div class="additional-tech">
                             <span class="badge bg-secondary">Pillow - обработка изображений</span>
@@ -285,42 +289,58 @@
 
         <!-- Слайд 7: Заключение -->
         <div class="slide" id="slide7">
-            <div class="slide-content text-center">
-                <h2 class="slide-title">🎉 Результат</h2>
+            <div class="slide-content">
+                <h2 class="slide-title text-center">🎉 Результат</h2>
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-12 col-lg-10">
                         <div class="result-card">
-                            <h3 class="mb-4">Готовый интернет-магазин!</h3>
-                            <div class="result-stats">
-                                <div class="stat-item">
-                                    <div class="stat-number">2</div>
-                                    <div class="stat-label">Приложения Django</div>
+                            <h3 class="text-center mb-4">Готовый интернет-магазин!</h3>
+                            <div class="result-stats row g-3">
+                                <div class="col-6 col-md-3">
+                                    <div class="stat-item text-center">
+                                        <div class="stat-number">2</div>
+                                        <div class="stat-label">Приложения Django</div>
+                                    </div>
                                 </div>
-                                <div class="stat-item">
-                                    <div class="stat-number">5</div>
-                                    <div class="stat-label">HTML страниц</div>
+                                <div class="col-6 col-md-3">
+                                    <div class="stat-item text-center">
+                                        <div class="stat-number">5</div>
+                                        <div class="stat-label">HTML страниц</div>
+                                    </div>
                                 </div>
-                                <div class="stat-item">
-                                    <div class="stat-number">6</div>
-                                    <div class="stat-label">Товаров на странице</div>
+                                <div class="col-6 col-md-3">
+                                    <div class="stat-item text-center">
+                                        <div class="stat-number">6</div>
+                                        <div class="stat-label">Товаров на странице</div>
+                                    </div>
                                 </div>
-                                <div class="stat-item">
-                                    <div class="stat-number">100%</div>
-                                    <div class="stat-label">Адаптивность</div>
+                                <div class="col-6 col-md-3">
+                                    <div class="stat-item text-center">
+                                        <div class="stat-number">100%</div>
+                                        <div class="stat-label">Адаптивность</div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="features-summary mt-4">
-                                <h5>✨ Ключевые особенности:</h5>
-                                <ul class="text-start">
-                                    <li>Современный дизайн с Bootstrap</li>
-                                    <li>Каталог товаров с поиском и фильтрами</li>
-                                    <li>Интеграция с Telegram Bot</li>
-                                    <li>Админ-панель для управления</li>
-                                    <li>Загрузка изображений товаров</li>
-                                    <li>Адаптивная верстка</li>
-                                </ul>
+                                <h5 class="text-center">✨ Ключевые особенности:</h5>
+                                <div class="row">
+                                    <div class="col-12 col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">✨ Современный дизайн с Bootstrap</li>
+                                            <li class="mb-2">✨ Каталог товаров с поиском и фильтрами</li>
+                                            <li class="mb-2">✨ Интеграция с Telegram Bot</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">✨ Админ-панель для управления</li>
+                                            <li class="mb-2">✨ Загрузка изображений товаров</li>
+                                            <li class="mb-2">✨ Адаптивная верстка</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mt-4">
+                            <div class="text-center mt-4">
                                 <p class="lead">Проект готов к использованию и дальнейшему развитию!</p>
                             </div>
                         </div>
@@ -332,28 +352,31 @@
 
     <!-- Навигация -->
     <div class="presentation-nav">
-        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" aria-label="Предыдущий слайд">
             <i class="bi bi-chevron-left"></i>
         </button>
         <div class="slide-counter">
             <span id="currentSlide">1</span> / <span id="totalSlides">7</span>
         </div>
-        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)" aria-label="Следующий слайд">
             <i class="bi bi-chevron-right"></i>
         </button>
     </div>
 
     <!-- Индикаторы слайдов -->
-    <div class="slide-indicators">
-        <button class="indicator active" onclick="goToSlide(1)"></button>
-        <button class="indicator" onclick="goToSlide(2)"></button>
-        <button class="indicator" onclick="goToSlide(3)"></button>
-        <button class="indicator" onclick="goToSlide(4)"></button>
-        <button class="indicator" onclick="goToSlide(5)"></button>
-        <button class="indicator" onclick="goToSlide(6)"></button>
-        <button class="indicator" onclick="goToSlide(7)"></button>
+    <div class="slide-indicators d-none d-md-flex">
+        <button class="indicator active" onclick="goToSlide(1)" aria-label="Перейти к слайду 1"></button>
+        <button class="indicator" onclick="goToSlide(2)" aria-label="Перейти к слайду 2"></button>
+        <button class="indicator" onclick="goToSlide(3)" aria-label="Перейти к слайду 3"></button>
+        <button class="indicator" onclick="goToSlide(4)" aria-label="Перейти к слайду 4"></button>
+        <button class="indicator" onclick="goToSlide(5)" aria-label="Перейти к слайду 5"></button>
+        <button class="indicator" onclick="goToSlide(6)" aria-label="Перейти к слайду 6"></button>
+        <button class="indicator" onclick="goToSlide(7)" aria-label="Перейти к слайду 7"></button>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="static/js/presentation.js"></script>
 </body>
 </html>

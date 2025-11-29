@@ -30,6 +30,7 @@ body {
     opacity: 0;
     transform: translateX(100%);
     transition: all 0.6s ease-in-out;
+    padding: 1rem;
 }
 
 .slide.active {
@@ -38,20 +39,22 @@ body {
 }
 
 .slide-content {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
-    padding: 2rem;
+    padding: 1.5rem;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .slide-title {
     text-align: center;
     margin-bottom: 2rem;
     color: #667eea;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -65,12 +68,12 @@ body {
 /* Навигация */
 .presentation-nav {
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     z-index: 1000;
 }
 
@@ -78,8 +81,8 @@ body {
     background: rgba(255, 255, 255, 0.9);
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -88,35 +91,41 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.nav-btn:hover {
+.nav-btn:hover:not(:disabled) {
     background: white;
     transform: scale(1.1);
 }
 
+.nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .slide-counter {
     background: rgba(255, 255, 255, 0.9);
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 25px;
     font-weight: bold;
     color: #667eea;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
 }
 
 /* Индикаторы */
 .slide-indicators {
     position: fixed;
-    right: 30px;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     z-index: 1000;
 }
 
 .indicator {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     border: none;
     background: rgba(255, 255, 255, 0.5);
@@ -127,6 +136,10 @@ body {
 .indicator.active {
     background: white;
     transform: scale(1.3);
+}
+
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.8);
 }
 
 /* Карточки функций */
@@ -145,14 +158,14 @@ body {
 }
 
 .function-card i {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 1rem;
 }
 
 /* Карточки приложений */
 .app-card {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -165,14 +178,13 @@ body {
 }
 
 .app-icon {
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    margin: 0 auto 1rem;
+    font-size: 1.8rem;
     color: white;
 }
 
@@ -191,6 +203,7 @@ body {
     border-radius: 8px;
     margin: 1rem 0;
     font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
 }
 
 /* Технологии */
@@ -206,7 +219,8 @@ body {
 }
 
 .tech-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    flex-shrink: 0;
 }
 
 /* Сетка функций */
@@ -225,10 +239,11 @@ body {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     text-align: center;
+    justify-content: center;
 }
 
 .feature-item i {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 /* Результат */
@@ -240,9 +255,6 @@ body {
 }
 
 .result-stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
     margin: 2rem 0;
 }
 
@@ -252,16 +264,17 @@ body {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 15px;
     color: white;
+    height: 100%;
 }
 
 .stat-number {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .features-summary ul {
@@ -302,41 +315,59 @@ body {
     justify-content: center;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
+.additional-tech .badge {
+    font-size: 0.85rem;
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 992px) {
     .slide-content {
-        width: 95%;
-        padding: 1rem;
+        padding: 1.25rem;
+        max-height: 85vh;
     }
     
     .slide-title {
         font-size: 1.8rem;
-    }
-    
-    .result-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .presentation-nav {
-        bottom: 20px;
-    }
-    
-    .slide-indicators {
-        right: 15px;
-    }
-    
-    .function-card {
-        margin-bottom: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .slide-title {
-        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
     }
     
     .stat-number {
-        font-size: 2rem;
+        font-size: 1.8rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .slide {
+        padding: 0.5rem;
+    }
+    
+    .slide-content {
+        padding: 1rem;
+        max-height: 80vh;
+        border-radius: 15px;
+    }
+    
+    .slide-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .display-1 {
+        font-size: 2.5rem;
+    }
+    
+    .h2 {
+        font-size: 1.5rem;
+    }
+    
+    .presentation-nav {
+        bottom: 15px;
+        gap: 10px;
     }
     
     .nav-btn {
@@ -344,7 +375,172 @@ body {
         height: 40px;
     }
     
+    .slide-counter {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .slide-indicators {
+        right: 15px;
+        gap: 6px;
+    }
+    
+    .indicator {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .function-card,
+    .app-card,
+    .model-card {
+        padding: 1rem;
+    }
+    
+    .tech-item {
+        padding: 0.75rem;
+    }
+    
+    .tech-icon {
+        font-size: 1.5rem;
+    }
+    
+    .result-card {
+        padding: 1.5rem;
+    }
+    
+    .stat-item {
+        padding: 0.75rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+}
+
+/* Адаптивность для очень маленьких экранов */
+@media (max-width: 576px) {
+    .slide-content {
+        padding: 0.75rem;
+        max-height: 75vh;
+    }
+    
+    .slide-title {
+        font-size: 1.3rem;
+    }
+    
+    .display-1 {
+        font-size: 2rem;
+    }
+    
+    .h2 {
+        font-size: 1.3rem;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .presentation-nav {
-        gap: 15px;
+        bottom: 10px;
+    }
+    
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .function-card i {
+        font-size: 1.5rem;
+    }
+    
+    .app-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .result-card {
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.3rem;
+    }
+}
+
+/* Улучшения производительности */
+.slide-content {
+    scrollbar-width: thin;
+    scrollbar-color: #667eea rgba(255, 255, 255, 0.1);
+}
+
+.slide-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.slide-content::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.slide-content::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 3px;
+}
+
+.slide-content::-webkit-scrollbar-thumb:hover {
+    background: #5a6fd8;
+}
+
+/* Фокус для доступности */
+.nav-btn:focus,
+.indicator:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Анимации для улучшения UX */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide.active .slide-content {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Темная тема (опционально) */
+@media (prefers-color-scheme: dark) {
+    .slide-content {
+        background: rgba(30, 30, 30, 0.95);
+        color: #e0e0e0;
+    }
+    
+    .function-card,
+    .app-card,
+    .model-card,
+    .tech-item,
+    .result-card {
+        background: rgba(50, 50, 50, 0.9);
+        color: #e0e0e0;
+    }
+    
+    .model-fields {
+        background: rgba(40, 40, 40, 0.9);
+        color: #e0e0e0;
     }
 }
