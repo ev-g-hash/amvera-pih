@@ -1,13 +1,11 @@
-# Используем официальный образ nginx
+# Dockerfile для Amvera (опционально, для статического сайта не обязателен)
 FROM nginx:alpine
 
-# Копируем наши файлы в стандартную папку nginx
-COPY index.html /usr/share/nginx/html/
-COPY style.css /usr/share/nginx/html/
-COPY script.js /usr/share/nginx/html/
+# Копируем статические файлы
+COPY . /usr/share/nginx/html/
 
-# Копируем конфигурацию nginx (создадим отдельно)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Копируем конфигурацию nginx для правильной работы SPA
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Открываем порт 80
 EXPOSE 80
