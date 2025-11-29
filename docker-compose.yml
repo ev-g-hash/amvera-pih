@@ -5,31 +5,21 @@ services:
     build: .
     ports:
       - "8080:80"
-    container_name: django-presentation
+    container_name: docker-hello-world
     restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
-    environment:
-      - NGINX_HOST=localhost
-      - NGINX_PORT=80
-    labels:
-      - "traefik.enable=false"
     
-  # Опционально: мониторинг с помощью nginx-prometheus-exporter
-  # nginx-exporter:
-  #   image: nginx/nginx-prometheus-exporter:0.11.0
+  # Опционально: можно добавить базу данных или другие сервисы
+  # database:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_DB: hello_world
+  #     POSTGRES_USER: user
+  #     POSTGRES_PASSWORD: password
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
   #   ports:
-  #     - "9113:9113"
-  #   command:
-  #     - '-nginx.scrape-uri=http://web:80/nginx_status'
-  #   depends_on:
-  #     - web
+  #     - "5432:5432"
 
-# Опционально: сеть для сервисов
-# networks:
-#   default:
-#     name: presentation-network
+# Опционально: volumes для базы данных
+# volumes:
+#   postgres_data:

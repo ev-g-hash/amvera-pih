@@ -6,11 +6,3 @@ Dockerfile
 .gitignore
 README.md
 .env
-.env.local
-.env.production
-.vscode
-.idea
-*.log
-*.tmp
-*.swp
-*.swo
