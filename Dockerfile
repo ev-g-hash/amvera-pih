@@ -1,29 +1,20 @@
-# Используем официальный образ Nginx
+# Используем официальный образ nginx для production
 FROM nginx:alpine
 
-# Удаляем стандартную конфигурацию
+# Удаляем стандартную конфигурацию nginx
 RUN rm /etc/nginx/conf.d/default.conf
 
-# Копируем нашу конфигурацию Nginx
+# Копируем нашу конфигурацию nginx
 COPY nginx.conf /etc/nginx/conf.d/
 
-# Копируем файлы презентации
-COPY index.html /usr/share/nginx/html/
-COPY script.js /usr/share/nginx/html/
-COPY style.css /usr/share/nginx/html/
+# Копируем файлы веб-приложения в директорию nginx
+COPY index.html style.css script.js /usr/share/nginx/html/
 
-# Создаем директорию для логов
-RUN mkdir -p /var/log/nginx
+# Устанавливаем права доступа
+RUN chmod -R 755 /usr/share/nginx/html
 
-# Устанавливаем правильные права доступа
-RUN chmod -R 644 /usr/share/nginx/html/*
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:80/ || exit 1
-
-# Экспонируем порт
+# Экспортируем порт 80
 EXPOSE 80
 
-# Запускаем Nginx
+# Запускаем nginx
 CMD ["nginx", "-g", "daemon off;"]

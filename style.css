@@ -1,3 +1,4 @@
+/* Основные стили для всего документа */
 body {
     margin: 0;
     padding: 0;
@@ -11,6 +12,7 @@ body {
     overflow: hidden;
 }
 
+/* Стили для основного контейнера */
 .container {
     text-align: center;
     background: rgba(255, 255, 255, 0.1);
@@ -22,6 +24,7 @@ body {
     z-index: 10;
 }
 
+/* Стили для заголовка */
 .title {
     color: white;
     margin: 0 0 30px 0;
@@ -31,6 +34,7 @@ body {
     animation: titleGlow 2s ease-in-out infinite alternate;
 }
 
+/* Анимация свечения заголовка */
 @keyframes titleGlow {
     from {
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -41,6 +45,7 @@ body {
     }
 }
 
+/* Стили для кнопки */
 .hello-button {
     background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
     border: none;
@@ -56,17 +61,20 @@ body {
     letter-spacing: 1px;
 }
 
+/* Эффект при наведении на кнопку */
 .hello-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 20px 0 rgba(31, 38, 135, 0.3);
     background: linear-gradient(45deg, #4ECDC4, #FF6B6B);
 }
 
+/* Эффект при нажатии на кнопку */
 .hello-button:active {
     transform: translateY(0);
     box-shadow: 0 2px 10px 0 rgba(31, 38, 135, 0.2);
 }
 
+/* Стили для сообщения */
 .message {
     margin-top: 20px;
     font-size: 24px;
@@ -76,10 +84,12 @@ body {
     animation: fadeIn 0.5s ease-in;
 }
 
+/* Класс для скрытия элементов */
 .hidden {
     display: none;
 }
 
+/* Анимация появления сообщения */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -91,6 +101,7 @@ body {
     }
 }
 
+/* Стили для canvas с конфетти */
 #confettiCanvas {
     position: absolute;
     top: 0;

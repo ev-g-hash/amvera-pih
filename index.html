@@ -1,22 +1,29 @@
 <!DOCTYPE html>
+<!-- Основной HTML файл веб-приложения "Послание" -->
 <html lang="ru">
 <head>
+    <!-- Мета-теги для корректного отображения -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Послание</title>
+    <!-- Подключение стилей -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Основной контейнер с контентом -->
     <div class="container">
+        <!-- Заголовок страницы -->
         <h1 class="title">Сообщение</h1>
+        <!-- Кнопка для показа сообщения -->
         <button id="helloBtn" class="hello-button">Нажми меня</button>
+        <!-- Скрытое сообщение, которое показывается при нажатии на кнопку -->
         <div id="message" class="message hidden">
-            Привет Володя, сижу работаю над твоим проектом
-            , это пробные проект запаковынный в docker и запущенный на сервере
-            amvera
+            Привет
         </div>
     </div>
+    <!-- Canvas для анимации конфетти -->
     <canvas id="confettiCanvas"></canvas>
+    <!-- Подключение JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>

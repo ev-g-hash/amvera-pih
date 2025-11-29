@@ -1,23 +1,27 @@
+// Основная функция, выполняющаяся после загрузки DOM
 document.addEventListener('DOMContentLoaded', function() {
+    // Получаем элементы DOM
     const button = document.getElementById('helloBtn');
     const message = document.getElementById('message');
     const canvas = document.getElementById('confettiCanvas');
     const ctx = canvas.getContext('2d');
     
-    // Устанавливаем размеры canvas
+    // Функция для установки размеров canvas в соответствии с размером окна
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     }
     resizeCanvas();
+    // Обновляем размеры при изменении размера окна
     window.addEventListener('resize', resizeCanvas);
     
-    // Массив частиц конфетти
+    // Массив для хранения частиц конфетти
     let confettiParticles = [];
     
     // Класс частицы конфетти
     class ConfettiParticle {
         constructor() {
+            // Инициализация свойств частицы
             this.x = Math.random() * canvas.width;
             this.y = -10;
             this.size = Math.random() * 8 + 4;
@@ -29,11 +33,13 @@ document.addEventListener('DOMContentLoaded', function() {
             this.shape = Math.floor(Math.random() * 3); // 0: квадрат, 1: круг, 2: треугольник
         }
         
+        // Функция для получения случайного цвета
         getRandomColor() {
             const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E9'];
             return colors[Math.floor(Math.random() * colors.length)];
         }
         
+        // Функция обновления состояния частицы
         update() {
             this.x += this.speedX;
             this.y += this.speedY;
@@ -46,12 +52,14 @@ document.addEventListener('DOMContentLoaded', function() {
             this.speedX *= 0.99;
         }
         
+        // Функция отрисовки частицы
         draw() {
             ctx.save();
             ctx.translate(this.x, this.y);
             ctx.rotate(this.rotation * Math.PI / 180);
             ctx.fillStyle = this.color;
             
+            // Рисуем частицу в зависимости от её формы
             switch(this.shape) {
                 case 0: // квадрат
                     ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
@@ -74,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.restore();
         }
         
+        // Функция проверки, вышла ли частица за границы экрана
         isOffScreen() {
             return this.y > canvas.height + 10;
         }
@@ -110,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
         animateConfetti();
     }
     
+    // Обработчик события нажатия на кнопку
     button.addEventListener('click', function() {
         // Показываем сообщение
         message.classList.remove('hidden');
