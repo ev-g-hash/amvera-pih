@@ -1,154 +1,70 @@
-// Основная функция, выполняющаяся после загрузки DOM
-document.addEventListener('DOMContentLoaded', function() {
-    // Получаем элементы DOM
-    const button = document.getElementById('helloBtn');
-    const message = document.getElementById('message');
-    const canvas = document.getElementById('confettiCanvas');
-    const ctx = canvas.getContext('2d');
+// static/js/presentation.js
+let currentSlide = 1;
+const totalSlides = 7;
+
+function showSlide(n) {
+    const slides = document.querySelectorAll('.slide');
+    const indicators = document.querySelectorAll('.indicator');
     
-    // Функция для установки размеров canvas в соответствии с размером окна
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    // Обновляем размеры при изменении размера окна
-    window.addEventListener('resize', resizeCanvas);
+    if (n > totalSlides) currentSlide = 1;
+    if (n < 1) currentSlide = totalSlides;
     
-    // Массив для хранения частиц конфетти
-    let confettiParticles = [];
-    
-    // Класс частицы конфетти
-    class ConfettiParticle {
-        constructor() {
-            // Инициализация свойств частицы
-            this.x = Math.random() * canvas.width;
-            this.y = -10;
-            this.size = Math.random() * 8 + 4;
-            this.speedX = (Math.random() - 0.5) * 6;
-            this.speedY = Math.random() * 3 + 2;
-            this.color = this.getRandomColor();
-            this.rotation = Math.random() * 360;
-            this.rotationSpeed = (Math.random() - 0.5) * 10;
-            this.shape = Math.floor(Math.random() * 3); // 0: квадрат, 1: круг, 2: треугольник
-        }
-        
-        // Функция для получения случайного цвета
-        getRandomColor() {
-            const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E9'];
-            return colors[Math.floor(Math.random() * colors.length)];
-        }
-        
-        // Функция обновления состояния частицы
-        update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            this.rotation += this.rotationSpeed;
-            
-            // Добавляем гравитацию
-            this.speedY += 0.1;
-            
-            // Добавляем сопротивление воздуха
-            this.speedX *= 0.99;
-        }
-        
-        // Функция отрисовки частицы
-        draw() {
-            ctx.save();
-            ctx.translate(this.x, this.y);
-            ctx.rotate(this.rotation * Math.PI / 180);
-            ctx.fillStyle = this.color;
-            
-            // Рисуем частицу в зависимости от её формы
-            switch(this.shape) {
-                case 0: // квадрат
-                    ctx.fillRect(-this.size/2, -this.size/2, this.size, this.size);
-                    break;
-                case 1: // круг
-                    ctx.beginPath();
-                    ctx.arc(0, 0, this.size/2, 0, Math.PI * 2);
-                    ctx.fill();
-                    break;
-                case 2: // треугольник
-                    ctx.beginPath();
-                    ctx.moveTo(0, -this.size/2);
-                    ctx.lineTo(-this.size/2, this.size/2);
-                    ctx.lineTo(this.size/2, this.size/2);
-                    ctx.closePath();
-                    ctx.fill();
-                    break;
-            }
-            
-            ctx.restore();
-        }
-        
-        // Функция проверки, вышла ли частица за границы экрана
-        isOffScreen() {
-            return this.y > canvas.height + 10;
-        }
-    }
-    
-    // Функция создания конфетти
-    function createConfetti() {
-        confettiParticles = [];
-        const particleCount = 150;
-        
-        for (let i = 0; i < particleCount; i++) {
-            confettiParticles.push(new ConfettiParticle());
-        }
-    }
-    
-    // Функция анимации конфетти
-    function animateConfetti() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        confettiParticles = confettiParticles.filter(particle => {
-            particle.update();
-            particle.draw();
-            return !particle.isOffScreen();
-        });
-        
-        if (confettiParticles.length > 0) {
-            requestAnimationFrame(animateConfetti);
-        }
-    }
-    
-    // Функция запуска конфетти
-    function launchConfetti() {
-        createConfetti();
-        animateConfetti();
-    }
-    
-    // Обработчик события нажатия на кнопку
-    button.addEventListener('click', function() {
-        // Показываем сообщение
-        message.classList.remove('hidden');
-        
-        // Запускаем конфетти
-        launchConfetti();
-        
-        // Добавляем анимацию пульсации для кнопки
-        button.style.animation = 'pulse 0.6s ease-in-out';
-        
-        // Убираем анимацию через 0.6 секунды
-        setTimeout(() => {
-            button.style.animation = '';
-        }, 600);
-        
-        // Добавляем дополнительную анимацию CSS
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes pulse {
-                0% { transform: scale(1); }
-                50% { transform: scale(1.1); }
-                100% { transform: scale(1); }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        // Удаляем стили через секунду
-        setTimeout(() => {
-            document.head.removeChild(style);
-        }, 1000);
+    slides.forEach(slide => {
+        slide.classList.remove('active');
     });
+    
+    indicators.forEach(indicator => {
+        indicator.classList.remove('active');
+    });
+    
+    document.getElementById(`slide${currentSlide}`).classList.add('active');
+    indicators[currentSlide - 1].classList.add('active');
+    
+    document.getElementById('currentSlide').textContent = currentSlide;
+    
+    // Обновляем состояние кнопок навигации
+    document.getElementById('prevBtn').disabled = currentSlide === 1;
+    document.getElementById('nextBtn').disabled = currentSlide === totalSlides;
+}
+
+function changeSlide(direction) {
+    currentSlide += direction;
+    showSlide(currentSlide);
+}
+
+function goToSlide(slideNumber) {
+    currentSlide = slideNumber;
+    showSlide(currentSlide);
+}
+
+// Клавиатурная навигация
+document.addEventListener('keydown', function(event) {
+    switch(event.key) {
+        case 'ArrowLeft':
+            changeSlide(-1);
+            break;
+        case 'ArrowRight':
+            changeSlide(1);
+            break;
+        case 'Home':
+            goToSlide(1);
+            break;
+        case 'End':
+            goToSlide(totalSlides);
+            break;
+    }
+});
+
+// Инициализация
+document.addEventListener('DOMContentLoaded', function() {
+    showSlide(currentSlide);
+    
+    // Автоматическое переключение слайдов (опционально)
+    // setInterval(() => {
+    //     if (currentSlide < totalSlides) {
+    //         changeSlide(1);
+    //     } else {
+    //         goToSlide(1);
+    //     }
+    // }, 10000); // каждые 10 секунд
 });
